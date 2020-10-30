@@ -8,7 +8,7 @@ exports.index = function(req, res){
 }
 
 exports.displayManusia = function(req, res){
-    connection.query('SELECT * FROM `manusia`', (error, rows, fileds) => {
+    connection.query('SELECT * FROM manusia', (error, rows, fileds) => {
         if(error){
             console.log(error);
         }else{
@@ -16,3 +16,14 @@ exports.displayManusia = function(req, res){
         }
     })
 }
+
+exports.displayManusiaById = function(req, res){
+    let id = req.params.id;
+    connection.query('SELECT * FROM manusia WHERE id_manusia = ?', [id], (error, rows, filed) => {
+        if(error){
+            console.log(error)
+        }else{
+            response.ok(rows, res);
+        }
+    })
+} 

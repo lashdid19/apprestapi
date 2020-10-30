@@ -8,4 +8,7 @@ module.exports = function(app){
 
     app.route('/manusia')
         .get(myjson.displayManusia);
+
+    app.route('/manusia/:id')
+        .get(myjson.displayManusiaById);
 }
