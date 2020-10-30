@@ -27,3 +27,16 @@ exports.displayManusiaById = function(req, res){
         }
     })
 } 
+
+exports.addManusia = function(req, res) {
+    var nama = req.body.nama;
+    var nimu = req.body.nimu;
+    var pekerjaan = req.body.pekerjaan;
+    connection.query('INSERT INTO manusia (nama, nimu, pekerjaan) VALUE (?, ?, ?)', [nama, nimu, pekerjaan], (error, rows, filed) => {
+        if(error){
+            console.log(error)
+        }else{
+            response.ok("Yippie! New data has added!", res)
+        }
+    })
+}

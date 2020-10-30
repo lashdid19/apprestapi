@@ -11,4 +11,7 @@ module.exports = function(app){
 
     app.route('/manusia/:id')
         .get(myjson.displayManusiaById);
+
+    app.route('/tambah')
+        .post(myjson.addManusia);
 }
