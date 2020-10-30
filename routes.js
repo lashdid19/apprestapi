@@ -12,6 +12,9 @@ module.exports = function(app){
     app.route('/manusia/:id')
         .get(myjson.displayManusiaById);
 
-    app.route('/tambah')
+    app.route('/add')
         .post(myjson.addManusia);
+
+    app.route('/change')
+        .put(myjson.changeManusia);
 }

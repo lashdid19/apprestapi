@@ -40,3 +40,18 @@ exports.addManusia = function(req, res) {
         }
     })
 }
+
+exports.changeManusia = function(req, res){
+    var id = req.body.id_manusia;
+    var nama = req.body.nama;
+    var nimu = req.body.nimu;
+    var pekerjaan = req.body.pekerjaan;
+
+    connection.query('UPDATE manusia SET nama = ? nimu = ? pekerjaan = ?', [nama, nimu, pekerjaan], (error, rows, filed) => {
+        if(error){
+            console.log(error)
+        }else{
+            response.ok("Wow! Data has changed!");
+        }
+    })
+}
